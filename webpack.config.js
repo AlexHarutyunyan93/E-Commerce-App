@@ -9,7 +9,7 @@ module.exports = {
     },
     mode: "development",
     devServer: {
-        port: 9090,
+        port: 8001,
         historyApiFallback: true,
     },
     module: {
@@ -29,6 +29,17 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    // Creates `style` nodes from JS strings
+                    'style-loader',
+                    // Translates CSS into CommonJS
+                    'css-loader',
+                    // Compiles Sass to CSS
+                    'sass-loader',
+                ],
             },
         ]
     },
